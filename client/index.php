@@ -19,6 +19,7 @@
                 <li><a href="about.php">About</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="products.php">Products</a></li>
+                <li><a href="weather.php">Weather Updates</a></li>
             </ul>
         </nav>
         <hr>

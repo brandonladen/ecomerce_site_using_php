@@ -1,0 +1,116 @@
+/* Body styling */
+body {
+    font-family: 'Arima', Arial, sans-serif;
+    background-color: #e0f7fa; /* Light, calming background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.back-to-shopping-link:hover {
+    background-color: #0056b3;
+}
+
+/* Container styling */
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Center-align h1 text */
+h1 {
+    color: #00796b;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: block;  /* Ensures the form is in its own line */
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    text-align: left; /* Align label text to the left */
+}
+
+/* Input styling */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #00796b;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+/* Back to Shopping button styling */
+button.back-to-shopping {
+    background-color: #f44336;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Weather info styling */
+.weather-info {
+    background-color: #fff;
+    border-radius: 10px;  /* Same as form card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;  /* Match padding to the form */
+    margin-top: 20px;
+    color: #00796b;
+    text-align: center;
+    font-size: 1.1em;
+    width: 100%;  /* Ensure it is the same width as the form */
+}
+
+/* Weather info heading */
+.weather-info h2 {
+    color: #00796b;
+    margin-bottom: 15px;
+}
+
+/* Weather info paragraph */
+.weather-info p {
+    color: #333;
+}
