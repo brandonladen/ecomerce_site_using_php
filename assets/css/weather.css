@@ -1,7 +1,7 @@
 /* Body styling */
 body {
     font-family: 'Arima', Arial, sans-serif;
-    background-color: #e0f7fa; /* Light, calming background color */
+    background-color: #e0f7fa;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@ form {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    display: block;  /* Ensures the form is in its own line */
+    display: block;
 }
 
 /* Label styling */
@@ -47,7 +47,7 @@ label {
     margin-bottom: 10px;
     font-weight: bold;
     color: #333;
-    text-align: left; /* Align label text to the left */
+    text-align: left;
 }
 
 /* Input styling */
@@ -67,41 +67,24 @@ input[type="text"]:focus {
     outline: none;
 }
 
-/* Button styling */
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    width: 100%;
-}
-
-/* Back to Shopping button styling */
-button.back-to-shopping {
-    background-color: #f44336;
-    margin-top: 10px;
-    width: 100%;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
 /* Weather info styling */
 .weather-info {
     background-color: #fff;
-    border-radius: 10px;  /* Same as form card */
+    border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;  /* Match padding to the form */
+    padding: 30px;
     margin-top: 20px;
     color: #00796b;
     text-align: center;
     font-size: 1.1em;
-    width: 100%;  /* Ensure it is the same width as the form */
+    width: 100%;
+}
+
+/* Weather icon styling */
+.weather-info .weather-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
 }
 
 /* Weather info heading */
@@ -113,4 +96,17 @@ button:hover {
 /* Weather info paragraph */
 .weather-info p {
     color: #333;
+}
+
+/* Button styling */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }

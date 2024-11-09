@@ -12,7 +12,17 @@ if (!isset($_SESSION['user_id'])) {
 include '../configs/db.php';
 
 // Fetch products from the database
-$query = "SELECT ProductName, Description, Price, ImagePath FROM Products";
+// $query = "SELECT ProductName, Description, Price, ImagePath FROM Products";
+$query = "SELECT 
+    p.ProductName,
+    p.Price,
+    p.Description,
+    p.ImagePath
+FROM 
+    Orders o
+JOIN 
+    Products p ON o.ProductID = p.ProductID;
+";
 $result = $conn->query($query);
 
 // Initialize an array to hold the fetched products
@@ -27,13 +37,6 @@ if ($result->num_rows > 0) {
     $message = "No products found!";
 }
 
-// Check for session messages
-$successMessage = isset($_SESSION['success_message']) ? $_SESSION['success_message'] : null;
-$errorMessage = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : null;
-
-// Clear messages after displaying them
-unset($_SESSION['success_message']);
-unset($_SESSION['error_message']);
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +63,7 @@ unset($_SESSION['error_message']);
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="contact.php">Contact</a></li>
+            <li><a href="products.php">Products</a></li>
             <li><a href="cart.php">Cart</a></li>
             <li>
                     <!-- Logout Button -->
@@ -74,37 +78,23 @@ unset($_SESSION['error_message']);
         <hr>
     </header>
 
-    <h2 style="text-align: center; color: white;">Our Products</h2>
+    <h2 style="text-align: center; color: white;">Your Cart</h2>
 
     <div class="container">
-    <div class="container">
-    <!-- Display messages -->
-    <div class="message-container">
-        <?php if ($successMessage): ?>
-            <div class="success-message"><?php echo htmlspecialchars($successMessage); ?></div>
-        <?php endif; ?>
-        <?php if ($errorMessage): ?>
-            <div class="error-message"><?php echo htmlspecialchars($errorMessage); ?></div>
-        <?php endif; ?>
-    </div>
         <!-- Display products dynamically -->
         <?php if (!empty($products)): ?>
-        <?php foreach ($products as $product): ?>
-            <div class="card">
-                <img src="<?php echo htmlspecialchars($product['ImagePath']); ?>" alt="<?php echo htmlspecialchars($product['ProductName']); ?>">
-                <h3><?php echo htmlspecialchars($product['ProductName']); ?></h3>
-                <p>Ksh.<?php echo htmlspecialchars($product['Price']); ?></p>
-                <p><?php echo htmlspecialchars($product['Description']); ?></p>
-                <form action="add_to_cart.php" method="POST">
-                    <input type="hidden" name="product_id" value="<?php echo $product['ProductID']; ?>">
-                    <button type="submit">Add to Cart</button>
-                </form>
+            <?php foreach ($products as $product): ?>
+                <div class="card">
+                    <img src="<?php echo htmlspecialchars($product['ImagePath']); ?>" alt="<?php echo htmlspecialchars($product['ProductName']); ?>">
+                    <h3><?php echo htmlspecialchars($product['ProductName']); ?></h3>
+                    <p>Ksh.<?php echo htmlspecialchars($product['Price']); ?></p>
+                    <p><?php echo htmlspecialchars($product['Description']); ?></p>
+                    <button>Add to Cart</button>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p style="text-align: center; color: white;">No products available at the moment.</p>
+            <p style="text-align: center; color: white;">No products available at the moment. <a href="products.php">Go do shopping</a></p>
         <?php endif; ?>
-
     </div>
 
     <footer>

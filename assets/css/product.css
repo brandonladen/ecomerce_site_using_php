@@ -66,3 +66,18 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.message-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

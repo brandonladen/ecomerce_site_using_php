@@ -1,5 +1,5 @@
 <?php
-$apiKey = '';
+$apiKey = 'cb471ed70d10bc1bfb870874eb38a185';
 $weather = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,9 +12,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Check if the response was successful
     if ($data && isset($data['current'])) {
-        $weather = "Location: " . $data['location']['name'] . "<br>" .
-                   "Temperature: " . $data['current']['temperature'] . " °C<br>" .
-                   "Weather: " . $data['current']['weather_descriptions'][0] . "<br>";
+        $day = date("l"); // Day of the week
+        $date = date("F j, Y"); // Full date
+        $precipitation = $data['current']['precip'];
+        $humidity = $data['current']['humidity'];
+        $windSpeed = $data['current']['wind_speed'];
+        $weatherIcon = $data['current']['weather_icons'][0];
+        $weatherDesc = $data['current']['weather_descriptions'][0];
+        $locationName = $data['location']['name'];
+
+        $weather = "<div class='weather-details'>
+                        <img src='{$weatherIcon}' alt='{$weatherDesc}' class='weather-icon'><br>
+                        <strong>Location:</strong> {$locationName}<br>
+                        <strong>Day:</strong> {$day}, {$date}<br>
+                        <strong>Weather:</strong> {$weatherDesc}<br>
+                        <strong>Temperature:</strong> {$data['current']['temperature']} °C<br>
+                        <strong>Precipitation:</strong> {$precipitation} mm<br>
+                        <strong>Humidity:</strong> {$humidity}%<br>
+                        <strong>Wind Speed:</strong> {$windSpeed} km/h<br>
+                    </div>";
     } else {
         $weather = "Weather data not available.";
     }

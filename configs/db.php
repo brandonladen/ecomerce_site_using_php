@@ -1,8 +1,8 @@
 <?php
-$host = 'address';
-$username = 'name';
-$password = 'pass';
-$database = 'your_db';
+$host = '127.0.0.1';
+$username = 'root';
+$password = 'root';
+$database = 'ecommerce_db';
 
 // Create a connection
 $conn = new mysqli($host, $username, $password, $database);
